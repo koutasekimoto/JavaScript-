@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像のサイズ変更</title>
+  <style>
+    #image {
+      max-width: 100%;
+      max-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 変更する画像 -->
+<img id="image" src="nbdk3.jpg" alt="画像">
+
+<script>
+// 画像要素を取得
+var image = document.getElementById("image");
+
+// マウスホイールイベントにリスナーを追加
+image.addEventListener("wheel", function(event) {
+  // マウスホイールの変更量を取得
+  var delta = event.deltaY || event.detail || event.wheelDelta;
+
+  // 画像の現在の幅と高さを取得
+  var currentWidth = image.width;
+  var currentHeight = image.height;
+
+  // ズームの係数を設定
+  var zoomFactor = 1.1;
+
+  // マウスホイールの方向によって画像のサイズを調整
+  if (delta < 0) {
+    // 上方向にスクロールした場合は拡大
+    image.width = currentWidth * zoomFactor;
+    image.height = currentHeight * zoomFactor;
+  } else {
+    // 下方向にスクロールした場合は縮小
+    image.width = currentWidth / zoomFactor;
+    image.height = currentHeight / zoomFactor;
+  }
+
+  // デフォルトのスクロールイベントを無効化
+  event.preventDefault();
+});
+</script>
+
+</body>
+</html>
