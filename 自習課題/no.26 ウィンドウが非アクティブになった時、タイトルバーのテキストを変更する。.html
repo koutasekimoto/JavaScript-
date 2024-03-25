@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>非アクティブ時のタイトル変更</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ウィンドウのアクティブ状態を確認</h1>
+
+  <script>
+    // ウィンドウのアクティブ状態を確認するイベントリスナーを追加
+    window.addEventListener('blur', () => {
+      document.title = '非アクティブ - タイトル変更';
+    });
+
+    window.addEventListener('focus', () => {
+      document.title = 'アクティブ - タイトル変更';
+    });
+  </script>
+</body>
+</html>
