@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  var inactivityTimeout; // インアクティビティを検知するためのタイムアウト
+
+  // ページが読み込まれたときにイベントリスナーを設定
+  window.addEventListener('mousemove', resetInactivityTimer);
+  window.addEventListener('keydown', resetInactivityTimer);
+
+  // インアクティビティをリセットする関数
+  function resetInactivityTimer() {
+    // 1分後にアラートを表示するタイマーをリセット
+    clearTimeout(inactivityTimeout);
+    
+    // 1分後に showAlert 関数を実行するタイマーをセット
+    inactivityTimeout = setTimeout(showAlert, 60000); // 60000ミリ秒 = 1分
+  }
+
+  // アラートを表示する関数
+  function showAlert() {
+    alert('まだいますか？');
+  }
+</script>
+
+</body>
+</html>
