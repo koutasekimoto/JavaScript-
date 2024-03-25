@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    #additional-content {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<label>
+  <input type="checkbox" id="show-content-checkbox" onchange="toggleContentVisibility()"> コンテンツを表示する
+</label>
+
+<div id="additional-content">
+  <!-- 表示/非表示を切り替えるコンテンツ -->
+  ここに関連するコンテンツが表示されます。
+</div>
+
+<script>
+  // チェックボックスの状態に応じてコンテンツの表示/非表示を切り替える関数
+  function toggleContentVisibility() {
+    var checkbox = document.getElementById('show-content-checkbox');
+    var additionalContent = document.getElementById('additional-content');
+
+    // チェックボックスがチェックされているかどうかを判定
+    if (checkbox.checked) {
+      additionalContent.style.display = 'block'; // チェックされていれば表示
+    } else {
+      additionalContent.style.display = 'none'; // チェックされていなければ非表示
+    }
+  }
+</script>
+
+</body>
+</html>
