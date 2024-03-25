@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キーに応じた背景色変更</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+      transition: background-color 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <h1>任意のキーを押してください</h1>
+
+  <script>
+    document.addEventListener('keydown', (event) => {
+      const pressedKey = event.key.toLowerCase(); // 大文字小文字を区別しないように変換
+
+      switch (pressedKey) {
+        case 'b':
+          document.body.style.backgroundColor = 'blue';
+          break;
+        case 'r':
+          document.body.style.backgroundColor = 'red';
+          break;
+        case 'y':
+          document.body.style.backgroundColor = 'yellow';
+          break;
+        default:
+          // 他のキーが押された場合のデフォルト処理
+          break;
+      }
+    });
+  </script>
+</body>
+</html>
