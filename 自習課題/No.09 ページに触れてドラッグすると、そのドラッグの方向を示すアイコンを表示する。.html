@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dragIndicator {
+            position: fixed;
+            display: none;
+            font-size: 64px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dragIndicator"></div>
+<script>
+    const dragIndicator = document.getElementById('dragIndicator');
+    let startX, startY;
+
+    document.addEventListener('mousedown', (event) => {
+        startX = event.clientX;
+        startY = event.clientY;
+        dragIndicator.style.display = 'block';
+    });
+
+    document.addEventListener('mousemove', (event) => {
+        if (startX !== undefined && startY !== undefined) {
+            const deltaX = event.clientX - startX;
+            const deltaY = event.clientY - startY;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                dragIndicator.textContent = deltaX > 0 ? '→' : '←';
+            } else {
+                dragIndicator.textContent = deltaY > 0 ? '↓' : '↑';
+            }
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        dragIndicator.style.display = 'none';
+        startX = undefined;
+        startY = undefined;
+    });
+</script>
+</body>
+</html>
