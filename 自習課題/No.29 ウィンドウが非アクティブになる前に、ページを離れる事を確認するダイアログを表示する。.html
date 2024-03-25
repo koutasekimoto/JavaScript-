@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>離れる前の確認</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>このページから離れる前に確認ダイアログが表示されます。</p>
+
+    <script>
+        let hasChanges = false;
+
+        // ページ内での変更がある場合にフラグを設定
+        // 例: フォームの変更、データの変更など
+        function indicateChanges() {
+            hasChanges = true;
+        }
+
+        // タブが閉じる前に確認アラートを表示
+        window.addEventListener('beforeunload', (event) => {
+            if (hasChanges) {
+                event.returnValue = 'このページから離れると未保存のデータが失われる可能性があります。本当によろしいですか？';
+            }
+        });
+    </script>
+
+    <!-- 変更がある場合の例 -->
+    <button onclick="indicateChanges()">変更を加える</button>
+
+</body>
+</html>
