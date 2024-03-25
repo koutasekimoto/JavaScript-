@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マウスオーバーで背景色変更</title>
+</head>
+<body>
+
+<!-- 背景色を変更する要素 -->
+<div id="targetElement">マウスを乗せてみてください。</div>
+
+<script>
+// 背景色を変更する要素を取得
+var targetElement = document.getElementById("targetElement");
+
+// マウスオーバー時のイベントにリスナーを追加
+targetElement.addEventListener("mouseover", function() {
+  // 背景色を変更
+  targetElement.style.backgroundColor = "lightblue";
+});
+
+// マウスアウト時のイベントにリスナーを追加
+targetElement.addEventListener("mouseout", function() {
+  // 背景色を元に戻す
+  targetElement.style.backgroundColor = "";
+});
+</script>
+
+</body>
+</html>
