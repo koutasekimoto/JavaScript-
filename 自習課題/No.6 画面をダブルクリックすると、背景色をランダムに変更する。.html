@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>背景色変更</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Arial', sans-serif;
+      transition: background-color 0.5s;
+    }
+    h1 {
+        user-select: none;
+    }
+  </style>
+</head>
+<body>
+    <h1>背景色が変わる</h1>
+
+<script>
+  // 背景色をランダムに生成する関数
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  // ダブルクリック時のイベントハンドラ
+  document.body.addEventListener('dblclick', function() {
+    const randomColor = getRandomColor();
+    document.body.style.backgroundColor = randomColor;
+  });
+</script>
+
+</body>
+</html>
