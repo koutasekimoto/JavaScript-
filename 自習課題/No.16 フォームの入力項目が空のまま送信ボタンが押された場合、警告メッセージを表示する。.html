@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    #warning-message {
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<form onsubmit="return validateForm()">
+  <label for="username">ユーザー名:</label>
+  <input type="text" id="username" name="username" required>
+
+  <label for="password">パスワード:</label>
+  <input type="password" id="password" name="password" required>
+
+  <input type="submit" value="送信">
+</form>
+
+<div id="warning-message">入力項目をすべて埋めてください。</div>
+
+<script>
+  function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var warningMessage = document.getElementById('warning-message');
+
+    // ユーザー名またはパスワードが空の場合
+    if (username === '' || password === '') {
+      warningMessage.style.display = 'block'; // 警告メッセージを表示
+      return false; // フォームの送信を中止
+    } else {
+      warningMessage.style.display = 'none'; // 警告メッセージを非表示
+      return true; // フォームを送信
+    }
+  }
+</script>
+
+</body>
+</html>
