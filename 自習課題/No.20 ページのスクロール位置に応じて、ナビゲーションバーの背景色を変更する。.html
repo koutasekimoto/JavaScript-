@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スクロールに応じたナビゲーションバーの背景色変更</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      transition: background-color 0.3s;
+    }
+
+    section {
+      height: 1500px; /* ページを長くするために高さを変更 */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header id="navbar">
+    <h1>ナビゲーションバー</h1>
+  </header>
+
+  <section>
+    <!-- ページのコンテンツ -->
+  </section>
+
+  <script>
+    // ページが読み込まれたら実行
+    window.onload = function() {
+      // ナビゲーションバーの要素を取得
+      const navbar = document.getElementById('navbar');
+
+      // スクロールイベントリスナーを追加
+      window.addEventListener('scroll', () => {
+        // スクロール位置を取得
+        const scrollPosition = window.scrollY;
+
+        // スクロール位置が100pxを超えたら背景色を変更
+        if (scrollPosition > 100) {
+          navbar.style.backgroundColor = '#555';
+        } else {
+          navbar.style.backgroundColor = '#333';
+        }
+      });
+    };
+  </script>
+</body>
+</html>
