@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マウス追従アニメーション</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #follower {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #3498db;
+      border-radius: 50%;
+      pointer-events: none; /* マウスイベントの対象外に設定 */
+    }
+  </style>
+</head>
+<body>
+  <div id="follower"></div>
+
+  <script>
+    const follower = document.getElementById('follower');
+
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      // マウスの座標に要素を追従させる
+      follower.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    });
+  </script>
+</body>
+</html>
