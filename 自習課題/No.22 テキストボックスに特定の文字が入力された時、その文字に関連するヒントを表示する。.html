@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>テキストボックスヒント表示</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+    }
+
+    #hint {
+      display: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <label for="textBox">テキストボックス:</label>
+  <input type="text" id="textBox" oninput="showHint(this.value)">
+  <div id="hint">ヒント: <span id="hintText"></span></div>
+
+  <script>
+    function showHint(inputValue) {
+      // ヒントの要素を取得
+      const hintElement = document.getElementById('hint');
+      const hintTextElement = document.getElementById('hintText');
+
+      // ヒントを初期化
+      hintElement.style.display = 'none';
+      hintTextElement.textContent = '';
+
+      // 特定の文字に対応するヒントを設定
+      if (inputValue === '特定の文字') {
+        hintTextElement.textContent = 'この文字に関連するヒントが表示されます。';
+        hintElement.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
