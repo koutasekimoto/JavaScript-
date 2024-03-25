@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マウスオーバーで音声再生</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+    }
+
+    #audioContainer {
+      display: none;
+    }
+
+    #playButton {
+      cursor: pointer;
+      border: 1px solid #007bff;
+      padding: 10px;
+      border-radius: 5px;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div id="playButton" onmouseover="playAudio()" onmouseout="pauseAudio()">マウスオーバーで音声再生</div>
+
+  <audio id="audioContainer" src="#"></audio>
+
+  <script>
+    function playAudio() {
+      const audio = document.getElementById('audioContainer');
+      audio.play();
+    }
+
+    function pauseAudio() {
+      const audio = document.getElementById('audioContainer');
+      audio.pause();
+    }
+  </script>
+</body>
+</html>
