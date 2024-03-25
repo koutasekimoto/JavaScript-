@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Context Menu</title>
+  <style>
+    #customContextMenu {
+      display: none;
+      position: fixed;
+      background-color: #fff;
+      padding: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="customContextMenu">
+    <div onclick="handleMenuClick('action1')">Action 1</div>
+    <div onclick="handleMenuClick('action2')">Action 2</div>
+    <div onclick="handleMenuClick('action3')">Action 3</div>
+  </div>
+
+  <script>
+    const customContextMenu = document.getElementById('customContextMenu');
+    
+    document.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      customContextMenu.style.left = `${event.clientX}px`;
+      customContextMenu.style.top = `${event.clientY}px`;
+      customContextMenu.style.display = 'block';
+    });
+
+    document.addEventListener('click', () => {
+      customContextMenu.style.display = 'none';
+    });
+
+    function handleMenuClick(action) {
+      alert(`Selected: ${action}`);
+      customContextMenu.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
