@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+    }
+
+    textarea {
+      width: 300px;
+      height: 150px;
+      font-size: 16px;
+    }
+
+    #char-count {
+      margin-top: 10px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<textarea id="input-text" oninput="countChars(this)"></textarea>
+<div id="char-count">文字数: 0</div>
+
+<script>
+  // 文字数をカウントして表示する関数
+  function countChars(textarea) {
+    var charCountElement = document.getElementById('char-count');
+    var charCount = textarea.value.length;
+    charCountElement.textContent = '文字数: ' + charCount;
+  }
+</script>
+
+</body>
+</html>
