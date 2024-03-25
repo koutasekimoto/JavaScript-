@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ドロップダウン選択肢表示</title>
+</head>
+<body>
 
+<!-- ドロップダウン -->
+<select id="dropdown">
+  <option value="option1">ラム</option>
+  <option value="option2">ホゲット</option>
+  <option value="option3">マトン</option>
+</select>
+
+<!-- 表示する段落 -->
+<p id="outputParagraph">選択されたテキストが表示されます。</p>
+
+<script>
+// ドロップダウン要素と表示する段落要素を取得
+var dropdown = document.getElementById("dropdown");
+var outputParagraph = document.getElementById("outputParagraph");
+
+// ドロップダウンの選択肢が変更された時のイベントにリスナーを追加
+dropdown.addEventListener("change", function() {
+  // 選択されたテキストを取得して段落に表示
+  outputParagraph.textContent = dropdown.options[dropdown.selectedIndex].text;
+});
+</script>
+
+</body>
+</html>
