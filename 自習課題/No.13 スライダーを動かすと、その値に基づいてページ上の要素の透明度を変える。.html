@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+    }
+
+    #slider {
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    #target-element {
+      width: 200px;
+      height: 200px;
+      background-color: #3498db;
+      opacity: 1; /* 初期値を1に設定 */
+      transition: opacity 0.3s ease; /* アニメーションの設定 */
+    }
+  </style>
+</head>
+<body>
+
+<input type="range" id="slider" min="0" max="1" step="0.01" value="1" oninput="changeOpacity(this.value)">
+<div id="target-element"></div>
+
+<script>
+  // スライダーの値に基づいて要素の透明度を変更する関数
+  function changeOpacity(value) {
+    var targetElement = document.getElementById('target-element');
+    targetElement.style.opacity = value;
+  }
+</script>
+
+</body>
+</html>
