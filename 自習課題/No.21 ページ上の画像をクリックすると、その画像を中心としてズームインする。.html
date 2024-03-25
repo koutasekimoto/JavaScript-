@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像ズームイン</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #zoomedImageContainer {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      z-index: 9999;
+    }
+
+    #zoomedImageContainer img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- 画像リスト -->
+  <img src="https://placekitten.com/400/300" onclick="zoomImage(this)" alt="Kitten 1">
+  <img src="https://placekitten.com/500/400" onclick="zoomImage(this)" alt="Kitten 2">
+  <img src="https://placekitten.com/600/500" onclick="zoomImage(this)" alt="Kitten 3">
+
+  <!-- ズームされた画像を表示するコンテナ -->
+  <div id="zoomedImageContainer">
+    <img id="zoomedImage" onclick="closeZoom()" alt="Zoomed Image">
+  </div>
+
+  <script>
+    function zoomImage(clickedImage) {
+      // クリックされた画像のソースを取得
+      const imageUrl = clickedImage.src;
+
+      // ズームされた画像の要素を取得
+      const zoomedImage = document.getElementById('zoomedImage');
+
+      // ズームされた画像にクリックされた画像のソースを設定
+      zoomedImage.src = imageUrl;
+
+      // ズームされた画像を表示するコンテナを表示
+      document.getElementById('zoomedImageContainer').style.display = 'block';
+    }
+
+    function closeZoom() {
+      // ズームされた画像を表示するコンテナを非表示
+      document.getElementById('zoomedImageContainer').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
