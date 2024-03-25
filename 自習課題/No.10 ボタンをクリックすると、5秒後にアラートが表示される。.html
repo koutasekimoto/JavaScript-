@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<button onclick="showAlertAfterDelay()">クリックしてアラートを表示</button>
+
+<script>
+  // アラートを表示する関数
+  function showAlert() {
+    alert('5秒経過しました！');
+  }
+
+  // ボタンをクリックしてから5秒後にアラートを表示する関数
+  function showAlertAfterDelay() {
+    setTimeout(showAlert, 5000); // 5秒後に showAlert 関数を呼び出す
+  }
+</script>
+
+</body>
+</html>
